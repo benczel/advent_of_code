@@ -2,14 +2,11 @@ package com.advent.day.trebuchet
 
 object Trebuchet1 {
 
-  def keepDigitalCharOnly(line: String): String = {
-    line.replaceAll("\\D", "")
+  def keepDigitalCharOnly(line: String): Array[Char] = {
+    line.toCharArray.filter(_.isDigit)
   }
 
-  def processCode(code: String): String = {
-    code.length match
-      case 1 => code ++ code
-      case 2 => code
-      case _ => StringBuffer(2).append(code.toCharArray.head).append(code.toCharArray.last).toString
+  def processCodes(codes: Array[Int]): Int = {
+    10 * codes.head + codes.last
   }
 }
