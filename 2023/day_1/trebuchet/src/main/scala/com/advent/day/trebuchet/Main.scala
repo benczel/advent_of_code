@@ -12,4 +12,12 @@ import scala.io.Source
     .sum
 
   println(part1)
+
+  val part2 = Source.fromResource("input.txt")
+    .getLines()
+    .map(Trebuchet2.searchNumbers)
+    .map(Trebuchet2.processCodes)
+    .sum
+
+  println(part2)
 }
