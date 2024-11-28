@@ -5,13 +5,26 @@ import scala.io.Source
 
 @main def main(): Unit = {
 
+  val parser = Parser.apply
+
   val part1 = Source.fromResource("input.txt")
     .getLines()
-    .map(Cube1.parseLine)
+    .map(parser.parseLine)
     .map(g => (g.id, Cube1.isPossible(g.sets)))
     .filter(_._2)
-    .foldLeft(0)( (acc, act) => acc + act._1)
+    .foldLeft(0)((acc, act) => acc + act._1)
 
-    println(part1)
+  println(part1)
+
+
+  val part2 = Source.fromResource("input.txt")
+    .getLines()
+    .map(parser.parseLine)
+    .map(g => Cube2.explode(g.sets))
+    .map(Cube2.maxByColour)
+    .map(Cube2.multiply)
+    .sum
+
+  println(part2)
 
 }
