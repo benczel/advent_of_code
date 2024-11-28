@@ -2,7 +2,7 @@ package com.advent.day.cube
 
 import com.advent.day.cube.model.{Blue, Cube, Game, Green, Red, Set}
 
-class Parser {
+object Parser {
 
   def parseLine(line: String): Game = {
     val parsed = line.split(":")
@@ -27,8 +27,4 @@ class Parser {
       case Array(cnt: String, colour: String) if colour.equals("blue") => Blue(cnt.trim.toInt)
     }
   }
-}
-
-object Parser {
-  def apply: Parser = new Parser()
 }

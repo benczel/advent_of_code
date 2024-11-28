@@ -3,11 +3,11 @@ package com.advent.day.cube
 import com.advent.day.cube.model.{Blue, Cube, Game, Green, Red, Set}
 
 object Cube1 extends CubeConundrum {
-  
+
   def isPossible(sets: Array[Set]): Boolean = {
     !sets.map(
-      e => IsPossibleSet(e.cubes)
-    )
+        e => IsPossibleSet(e.cubes)
+      )
       .contains(false)
   }
 
